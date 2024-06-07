@@ -19,3 +19,5 @@ To get started with FoodReviews on your local machine, follow these steps:
 2. **Install Dependencies**: `npm install`
 3. **Run the Development Server**: `npm start`
 4. **Explore FoodReviews**: Open your browser and navigate to `http://localhost:3000` to start exploring recipe and restaurant reviews.
+
+Access the Figma file for the website design [here](https://www.figma.com/design/zYQhbfxEzkEJjJ5wRaizK5/Recipe-Reviews-Design?node-id=0-1&t=fwCRPRU8uZb3Hf4B-1).
