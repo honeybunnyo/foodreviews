@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Text, HStack, IconButton } from '@chakra-ui/react';
+import { Box, Flex, Text, HStack, IconButton, Link } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom';
 
@@ -29,6 +29,7 @@ const LeftPage = ({ title, imagePath, onOpen }) => {
           display={['block', 'block', 'block', 'none']}
           onClick={onOpen}
         />
+        <h1> </h1>
         <HStack spacing="8" display={['none', 'none', 'none', 'flex']} padding={"10px"}>
           <NavLink to="/" exact activeClassName="active-link">
             <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Welcome</Link>

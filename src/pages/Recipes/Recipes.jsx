@@ -8,14 +8,17 @@ import {
   Link,
   Image,
   Button,
-  IconButton
+  IconButton,
+  useDisclosure
 } from '@chakra-ui/react';
 import recipesData from '../../recipes.json'; // Import the recipes data
 import { SearchIcon} from '@chakra-ui/icons';
-
+import pancakes from '../../assets/pancakes.jpg';
+import LeftPage from '../../component/LeftPage/LeftPage';
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     // Load the recipes data from the JSON file
@@ -25,27 +28,7 @@ const Recipes = () => {
   return (
     <Box>
       <Flex direction={['column', 'column', 'column', 'row']} height="100vh">
-        {/* Left Side */}
-        <Box
-          flex="1"
-          bgImage="url('path/to/your/background/image.jpg')" // Add your background image
-          bgPosition="center"
-          bgRepeat="no-repeat"
-          bgSize="cover"
-          position="relative"
-        >
-          <Box
-            display="flex"
-            justifyContent="left"
-            alignItems="center"
-            height="100%"
-            padding={"60px"}
-          >
-            <Text fontSize="7xl" color="white" fontFamily="Abril Fatface, sans-serif">
-              Recipes
-            </Text>
-          </Box>
-        </Box>
+      <LeftPage title="Recipes" imagePath={pancakes} onOpen={onOpen} />
 
         {/* Right Side */}
           <IconButton
