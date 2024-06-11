@@ -1,9 +1,17 @@
 import React from 'react';
-import { Box, Flex, Image, Text, VStack, HStack, Link, IconButton } from '@chakra-ui/react';
-// import { SearchIcon } from '@chakra-ui/icons';
+import { Box, Flex, Text, VStack, HStack, Link, IconButton, useDisclosure,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton, } from '@chakra-ui/react';
+import { SearchIcon, HamburgerIcon} from '@chakra-ui/icons';
 import pancakes from '../../assets/pancakes.jpg';
 
 const Welcome = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box>
       <Flex direction={['column', 'column', 'column', 'row']} height="100vh">
@@ -24,13 +32,21 @@ const Welcome = () => {
             justifyContent="space-between"
             p="4"
           >
-            <HStack spacing="4">
-              <Link href="#" color="white">Welcome</Link>
-              <Link href="#" color="white">Recipes</Link>
-              <Link href="#" color="white">Restaurants</Link>
-              <Link href="#" color="white">Contact</Link>
+          <IconButton
+            aria-label="Menu"
+            icon={<HamburgerIcon />}
+            variant="outline"
+            color="white"
+            display={['block', 'block', 'block', 'none']}
+            onClick={onOpen}
+          />
+
+            <HStack spacing="4" display={['none', 'none', 'none', 'flex']}>
+              <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Welcome</Link>
+              <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Recipes</Link>
+              <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Restaurants</Link>
+              <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Contact</Link>
             </HStack>
-            {/* <SearchIcon /> */}
           </Flex>
           <Box
             display="flex"
@@ -39,13 +55,14 @@ const Welcome = () => {
             height="100%"
             padding={"60px"}
           >
-            <Text fontSize="7xl" color="white" fontWeight="bold" fontFamily="Abril Fatface, sans-serif">
+            <Text fontSize="7xl" color="white" fontFamily="Abril Fatface, sans-serif">
               Welcome
             </Text>
           </Box>
         </Box>
 
         {/* Right Side */}
+        
         <Flex
           flex="1"
           direction="column"
@@ -54,14 +71,40 @@ const Welcome = () => {
           p="8"
           bg="white"
         >
-          <Text fontSize="3xl" fontWeight="bold" color="black" fontFamily="Abril Fatface, sans-serif">
+          <IconButton
+            aria-label="Search"
+            icon={<SearchIcon />}
+            variant="outline"
+            color={['white', 'white', 'white', 'black']}
+            position="absolute"
+            top="4"
+            right="4"
+          />
+          <Text fontSize="4xl" color="black" fontFamily="Abril Fatface, sans-serif">
             It’s me, Jacqueline.
           </Text>
-          <Text fontSize="xl" color="black">
+          <Text fontSize="xl" color="black" padding={"40px"}>
             — Student, developer, and lover of food. Here you’ll be able to find reviews of recipes and restaurants.
           </Text>
         </Flex>
       </Flex>
+
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerBody>
+              <VStack spacing="6" marginTop={"30px"}>
+                <Link href="#" onClick={onClose}>Welcome</Link>
+                <Link href="#" onClick={onClose}>Recipes</Link>
+                <Link href="#" onClick={onClose}>Restaurants</Link>
+                <Link href="#" onClick={onClose}>Contact</Link>
+              </VStack>
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
+
     </Box>
   );
 };
