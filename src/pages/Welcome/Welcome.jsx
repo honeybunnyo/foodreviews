@@ -30,15 +30,6 @@ const Welcome = () => {
           p="8"
           bg="white"
         >
-          {/* <IconButton
-            aria-label="Search"
-            icon={<SearchIcon />}
-            color={['white', 'white', 'white', 'black']}
-            position="absolute"
-            variant="none"
-            top="4"
-            right="4"
-          /> */}
           <Text fontSize="4xl" color="black" fontFamily="Abril Fatface, sans-serif">
             It’s me, Jacqueline.
           </Text>

@@ -11,7 +11,7 @@ import {
   IconButton,
   useDisclosure
 } from '@chakra-ui/react';
-import recipesData from '../../recipes.json'; // Import the recipes data
+import recipesData from '../../recipes.json'; 
 import { SearchIcon} from '@chakra-ui/icons';
 import pancakes from '../../assets/pancakes.jpg';
 import LeftPage from '../../component/LeftPage/LeftPage';
@@ -19,18 +19,30 @@ import LeftPage from '../../component/LeftPage/LeftPage';
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [visibleRecipes, setVisibleRecipes] = useState(5); // Initially display 5 recipes
 
   useEffect(() => {
-    // Load the recipes data from the JSON file
     setRecipes(recipesData);
   }, []);
+
+  const loadMoreRecipes = () => {
+    setVisibleRecipes(prevVisibleRecipes => prevVisibleRecipes + 5);
+  };
 
   return (
     <Box>
       <Flex direction={['column', 'column', 'column', 'row']} height="100vh">
+        
       <LeftPage title="Recipes" imagePath={pancakes} onOpen={onOpen} />
 
         {/* Right Side */}
+        <Flex
+          flex="1"
+          direction="column"
+          p="8"
+          bg="white"
+          overflowY="auto"
+        >
           <IconButton
             aria-label="Search"
             icon={<SearchIcon />}
@@ -40,14 +52,8 @@ const Recipes = () => {
             top="4"
             right="4"
           />
-        <Flex
-          flex="1"
-          direction="column"
-          p="8"
-          bg="white"
-        >
-          <VStack spacing="6" align="left">
-            {recipes.map((recipe, index) => (
+          <VStack spacing="6" align="left" marginTop={"30px"}>
+          {recipes.slice(0, visibleRecipes).map((recipe, index) => (
               <HStack key={index} spacing="4" align="top">
                 <Image src={recipe.image} width={"300"} height={"175"} objectFit="cover" />
                 <Box>
@@ -58,8 +64,12 @@ const Recipes = () => {
               </HStack>
             ))}
           </VStack>
-          <Button mt="8" colorScheme="teal" variant="outline">Load more posts</Button>
-        </Flex>
+          {visibleRecipes < recipes.length && (
+            <Button mt="8" colorScheme="teal" variant="outline" onClick={loadMoreRecipes}>
+              Load more posts
+            </Button>
+          )}        
+          </Flex>
       </Flex>
     </Box>
   );
