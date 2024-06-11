@@ -1,0 +1,41 @@
+[
+    {
+      "name": "Banana Chocolate-Chip Muffins",
+      "date": "April 30, 2023",
+      "image": "src/assets/muffin.png",
+      "ingredients": [
+        "1 1/2 cups flour",
+        "1 cup sugar",
+        "1/2 cup chocolate chips",
+        "1 cup mashed bananas"
+      ],
+      "method": [
+        "Preheat the oven to 350°F (175°C).",
+        "Mix the flour and sugar.",
+        "Add the chocolate chips and mashed bananas.",
+        "Pour the batter into muffin tins.",
+        "Bake for 20-25 minutes."
+      ],
+      "review": "These muffins are delicious and easy to make."
+    },
+    {
+      "name": "S'mores Brownies",
+      "date": "January 15, 2023",
+      "image": "src/assets/muffin.png",
+      "ingredients": [
+        "1 box brownie mix",
+        "1 cup crushed graham crackers",
+        "1 cup mini marshmallows"
+      ],
+      "method": [
+        "Preheat the oven to 350°F (175°C).",
+        "Prepare the brownie mix according to the package instructions.",
+        "Pour half of the batter into a baking dish.",
+        "Sprinkle with graham crackers and marshmallows.",
+        "Pour the remaining batter on top.",
+        "Bake for 25-30 minutes."
+      ],
+      "review": "A delightful twist on the classic brownie."
+    }
+]
+  

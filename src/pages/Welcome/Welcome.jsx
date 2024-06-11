@@ -4,11 +4,11 @@ import { Box, Flex, Text, VStack, HStack, Link, IconButton, useDisclosure,
   DrawerBody,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton, } from '@chakra-ui/react';
+  DrawerCloseButton } from '@chakra-ui/react';
 import { SearchIcon, HamburgerIcon} from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom';
-
 import pancakes from '../../assets/pancakes.jpg';
+import LeftPage from '../../component/LeftPage/LeftPage';
 
 const Welcome = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -17,7 +17,7 @@ const Welcome = () => {
     <Box>
       <Flex direction={['column', 'column', 'column', 'row']} height="100vh">
         {/* Left Side */}
-        <Box
+        {/* <Box
           flex="1"
           bgImage={`url(${pancakes})`}
           bgPosition="center"
@@ -68,7 +68,11 @@ const Welcome = () => {
               Welcome
             </Text>
           </Box>
-        </Box>
+        </Box> */}
+
+        <LeftPage title="Welcome" imagePath={pancakes} onOpen={onOpen} />
+
+
 
         {/* Right Side */}
         
