@@ -2,11 +2,12 @@ import React from 'react';
 import { Box, Flex, Text, VStack, HStack, Link, IconButton, useDisclosure,
   Drawer,
   DrawerBody,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton, } from '@chakra-ui/react';
 import { SearchIcon, HamburgerIcon} from '@chakra-ui/icons';
+import { NavLink } from 'react-router-dom';
+
 import pancakes from '../../assets/pancakes.jpg';
 
 const Welcome = () => {
@@ -35,17 +36,25 @@ const Welcome = () => {
           <IconButton
             aria-label="Menu"
             icon={<HamburgerIcon />}
-            variant="outline"
+            variant="none"
             color="white"
             display={['block', 'block', 'block', 'none']}
             onClick={onOpen}
           />
-
-            <HStack spacing="4" display={['none', 'none', 'none', 'flex']}>
-              <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Welcome</Link>
-              <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Recipes</Link>
-              <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Restaurants</Link>
-              <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Contact</Link>
+            <h1></h1>
+            <HStack spacing="8" display={['none', 'none', 'none', 'flex']} padding={"10px"}>
+              <NavLink to="/" exact activeClassName="active-link">
+                <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Welcome</Link>
+              </NavLink>
+              <NavLink to="/recipes" activeClassName="active-link">
+                <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Recipes</Link>
+              </NavLink>
+              <NavLink to="/restaurants" activeClassName="active-link">
+                <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Restaurants</Link>
+              </NavLink>
+              <NavLink to="/contact" activeClassName="active-link">
+                <Link href="#" color="white" fontFamily="Abril Fatface, sans-serif">Contact</Link>
+              </NavLink>
             </HStack>
           </Flex>
           <Box
@@ -71,15 +80,15 @@ const Welcome = () => {
           p="8"
           bg="white"
         >
-          <IconButton
+          {/* <IconButton
             aria-label="Search"
             icon={<SearchIcon />}
-            variant="outline"
             color={['white', 'white', 'white', 'black']}
             position="absolute"
+            variant="none"
             top="4"
             right="4"
-          />
+          /> */}
           <Text fontSize="4xl" color="black" fontFamily="Abril Fatface, sans-serif">
             It’s me, Jacqueline.
           </Text>
@@ -90,21 +99,28 @@ const Welcome = () => {
       </Flex>
 
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerCloseButton />
+        <DrawerOverlay bg="black">
+          <DrawerContent bg="black">
             <DrawerBody>
-              <VStack spacing="6" marginTop={"30px"}>
-                <Link href="#" onClick={onClose}>Welcome</Link>
-                <Link href="#" onClick={onClose}>Recipes</Link>
-                <Link href="#" onClick={onClose}>Restaurants</Link>
-                <Link href="#" onClick={onClose}>Contact</Link>
+            <DrawerCloseButton  position="absolute" top="4" left="4"/>
+              <VStack spacing="6" marginTop={"60px"} align={"left"}>
+                <NavLink to="/" exact activeClassName="active-link" onClick={onClose} style={{ fontFamily: 'Abril Fatface, sans-serif', fontSize: '24px' }}>
+                  Welcome
+                </NavLink>
+                <NavLink to="/recipes" activeClassName="active-link" onClick={onClose} style={{ fontFamily: 'Abril Fatface, sans-serif', fontSize: '24px' }}>
+                  Recipes
+                </NavLink>
+                <NavLink to="/restaurants" activeClassName="active-link" onClick={onClose} style={{ fontFamily: 'Abril Fatface, sans-serif', fontSize: '24px' }}>
+                  Restaurants
+                </NavLink>
+                <NavLink to="/contact" activeClassName="active-link" onClick={onClose} style={{ fontFamily: 'Abril Fatface, sans-serif', fontSize: '24px' }}>
+                  Contact
+                </NavLink>
               </VStack>
             </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-
     </Box>
   );
 };
