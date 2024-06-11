@@ -1,11 +1,16 @@
 import React from 'react';
-import { Box, Flex, Text, VStack, HStack, Link, IconButton, useDisclosure,
+import { 
+  Box, 
+  Flex, 
+  Text, 
+  VStack, 
+  useDisclosure,
   Drawer,
   DrawerBody,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton } from '@chakra-ui/react';
-import { SearchIcon, HamburgerIcon} from '@chakra-ui/icons';
+  DrawerCloseButton 
+} from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import pancakes from '../../assets/pancakes.jpg';
 import LeftPage from '../../component/LeftPage/LeftPage';
@@ -17,11 +22,9 @@ const Welcome = () => {
     <Box>
       <Flex direction={['column', 'column', 'column', 'row']} height="100vh">
         {/* Left Side */}
-        
         <LeftPage title="Welcome" imagePath={pancakes} onOpen={onOpen} />
 
         {/* Right Side */}
-        
         <Flex
           flex="1"
           direction="column"

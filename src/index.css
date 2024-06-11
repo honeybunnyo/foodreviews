@@ -1,2 +1,19 @@
 /* Abril Fatface font */
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+::-webkit-scrollbar {
+    width: 6px; 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #ffffff; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

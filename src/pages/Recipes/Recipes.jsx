@@ -18,8 +18,8 @@ import LeftPage from '../../component/LeftPage/LeftPage';
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [visibleRecipes, setVisibleRecipes] = useState(5); // Initially display 5 recipes
+  const { onOpen } = useDisclosure();
+  const [visibleRecipes, setVisibleRecipes] = useState(5);
 
   useEffect(() => {
     setRecipes(recipesData);
